@@ -1,0 +1,21 @@
+{
+ "name": "chemblcure",
+ "type": "molecular",
+ "target": [ "pactivity" ],
+ "domain": [ "global" ],
+ "additive": [ false ],
+ "task": [ "regress" ],
+ "splits": [ {"split":"mc", "n":5, "f":0.5} ],
+ "metric": [ [ "r2", "mae" ] ],
+ "elements": [ "C", "N", "O", "S", "H", "F", "Cl", "Br", "I", "P", "B", "Si" ],
+ "datasets": [
+  "target_5htt.xyz",
+  "target_adenosinea3.xyz",
+  "target_bace.xyz",
+  "target_gr.xyz",
+  "target_herg.xyz",
+  "target_hiv1pr.xyz",
+  "target_thrombin.xyz",
+  "target_vegf.xyz"
+  ]
+}
