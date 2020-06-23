@@ -1,0 +1,6 @@
+&inputgipaw
+	job        = 'nmr'
+	prefix     = 'prefix'
+	tmp_dir = '/path/'
+	iverbosity = 10
+/

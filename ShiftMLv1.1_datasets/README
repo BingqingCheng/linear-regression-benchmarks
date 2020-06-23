@@ -1,0 +1,27 @@
+This folder contains the data used to build the dataset of 
+"Engel, E.A., Anelli, A., Hofstetter, A., Paruzzo, F.M., Emsley, L. & Ceriotti, M. (2019). A Bayesian approach to NMR Crystal structure determination. Physical Chemistry Chemical Physics. [DOI: 10.1039/C9CP04489B]" 
+and 
+" Hofstetter, A., Balodis, M., Paruzzo, F.M., Widdifield, C.M., Stevanato, G., Pinon, A.C., Bygrave, P.J., Day, G.M.  & Emsley, L. (2019). Rapid Structure Determination of Molecular Solids Using Chemical Shifts Directed by Unambiguous Prior Constraints. Journal of the American Chemical Society, XX, XXXX. [DOI: 10.1021/jacs.9b03908]"
+
+The folder CSD-1k contains data of the 1000 H/C/N/O-containing structures used to build the training set in the publications mentioned above.
+The folder CSD-S546 contains data of the 546 sulfur-containing structures used to build the training set in the publications mentioned above.
+Note that the training set was built by adding the structures of these two sets, and the ones of the CSD-2k set of the publication "Paruzzo, F. M., Hofstetter, A., Musil, F., De, S., Ceriotti, M., & Emsley, L. (2018). Chemical shifts in molecular solids by machine learning. Nature Communications, 9(1), 4501. [DOI: 10.1038/s41467-018-06972-x]". The CSD-2k set can be found at [DOI: 10.24435/materialscloud:2019.0023/v1]. The file CSD-3k+S546.xyz the structures of these 3 sets.
+
+The folder CSD-S104 contains data of the 104 sulfur-containing structures used to build the training set in the publications mentioned above.
+Note that the training set was built by adding the structures of these two sets, and the ones of the CSD-500 set of the publication "Paruzzo, F. M., Hofstetter, A., Musil, F., De, S., Ceriotti, M., & Emsley, L. (2018). Chemical shifts in molecular solids by machine learning. Nature Communications, 9(1), 4501. [DOI: 10.1038/s41467-018-06972-x]". The CSD-500 set can be found at [DOI: 10.24435/materialscloud:2019.0023/v1]. The file CSD-500+S104.xyz the structures of these 2 sets.
+
+The CSD-2k and the CSD-500 sets can be found at [DOI: 10.24435/materialscloud:2019.0023/v1]
+
+Each folder contains:
++ an extended .xyz file which contains the Quantum Espresso relaxed geometries and the corresponding DFT chemical shieldings of the structures in the corresponding dataset. For each atom in the xyz file we report: atom type, Cartesian coordinates, and GIPAW calculated isotropic chemical shielding.
++ a "gipaw/" folder which contains the GIPAW Quantum Espresso outputs
++ an "scf/" folder which contains the Quantum Espresso outputs of the energy calculations of the relaxed geometries
++ a "magres/" folder which contains the magres outputs of the GIPAW Quantum Espresso calculations
++ a relax-template.in file which contains the template of the Quantum Espresso input file for the geometry optimizations performed on the crystal structures downloaded from the Cambridge Structural Database
++ an scf-template.in file which contains the template of the Quantum Espresso input file for the energy calculations of the relaxed structures
++ a gipaw-template.in file which contains the template of the GIPAW-Quantum Espresso input file for the chemical shift calculations of the relaxed structures 
+
+As noted in the article mentioned above, a few structures and/or chemical shieldings may not be reliable due to instabilities in the GIPAW calculation. The structures that were excluded from our training set (the CSD-3k+S546) are given in:
++ frames_blatant_outliers.xyz which contains the structures among the CSD-3k+S546 for which at least one GIPAW-DFT chemical shifts falls outside the “physical” ranges as specified in the SI.
++ frames_suspicious.xyz contains the structures among the CSD-3k+S546 for which at least one GIPAW-DFT chemical shifts is suspicious in the sense of the residual error of the ML prediction with respect to the GIPAW value being outside the three sigma interval associated with the estimated uncertainty in the ML prediction
+

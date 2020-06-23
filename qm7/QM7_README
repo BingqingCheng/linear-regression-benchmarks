@@ -1,0 +1,16 @@
+QM7 is a subset of GDB-13 (a database of nearly 1 billion stable and synthetically accessible organic molecules) containing up to 7 heavy atoms C, N, O, and S. The 3D Cartesian coordinates of the most stable conformations and their atomization energies were determined using ab-initio density functional theory (PBE0/tier2 basis set).This dataset also provided Coulomb matrices as calculated in [Rupp et al. PRL, 2012]:
+	C_ii = 0.5 * Z^2.4
+        C_ij = Z_i * Z_j/abs(R_i − R_j)
+	Z_i - nuclear charge of atom i
+	R_i - cartesian coordinates of atom i
+
+The data file (.mat format, we recommend using `scipy.io.loadmat` for python users) contains five arrays:
+	"X" - (7165 x 23 x 23), Coulomb matrices
+	"T" - (7165), atomization energies (unit: kcal/mol)
+	"P" - (5 x 1433), cross-validation splits as used in [Montavon et al. NIPS, 2012]
+	"Z" - (7165 x 23), atomic charges
+	"R" - (7165 x 23 x 3), cartesian coordinate (unit: Bohr) of each atom in the molecules
+
+Reference:
+Rupp, Matthias, et al. "Fast and accurate modeling of molecular atomization energies with machine learning." Physical review letters 108.5 (2012): 058301.
+Montavon, Grégoire, et al. "Learning invariant representations of molecules for atomization energy prediction." Advances in Neural Information Processing Systems. 2012.

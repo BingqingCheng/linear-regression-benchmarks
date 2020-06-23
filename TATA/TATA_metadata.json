@@ -1,0 +1,18 @@
+{ 
+ "comment": "see README.txt",
+ "name": "TATA",
+ "targets": {
+     "dft_formation_energy_in_eV": {
+         "task": "regression",
+         "scaling": "extensive",
+         "metrics": [ "mae", "rmse", "r2" ],
+         "per_atom": true
+     }
+ },
+ "splits": [ {"method": "random", "n_splits": 2, "train_fraction": 0.7 } ],
+ "elements": [ "Zn","N","Ti","Hf","Zr" ],
+ "has_smiles": false,
+ "periodic": true,
+ "datasets": [
+  "TATA.xyz"
+  ]
