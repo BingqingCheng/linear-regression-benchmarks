@@ -1,0 +1,41 @@
+{
+ "comment": "?",
+ "datasets": [
+  "smol1k_w_smiles.xyz"
+ ],
+ "elements": [
+  "C",
+  "H",
+  "N",
+  "O"
+ ],
+ "has_smiles": true,
+ "hypersplit": {
+  "method": "random",
+  "n_splits": 10,
+  "train_fraction": 0.75
+ },
+ "name": "smol1k",
+ "periodic": false,
+ "splits": [
+  {
+   "method": "sequential",
+   "repeat_fraction_fct": "lambda s,t,p,f: 2*int(1./(f*(1-f))**0.5)",
+   "train_fraction": "np.arange(0.1, 1.0, 0.1)"
+  }
+ ],
+ "targets": {
+  "dft_formation_energy_per_atom_in_eV": {
+   "convert": "",
+   "metrics": [
+    "mae",
+    "rmse",
+    "rhop",
+    "r2"
+   ],
+   "per_atom": false,
+   "scaling": "unknown",
+   "task": "regression"
+  }
+ }
+}

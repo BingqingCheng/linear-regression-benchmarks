@@ -1,0 +1,25 @@
+{ 
+ "comment": "Aqueous solubility datasets",
+ "name": "aqsol",
+ "targets": {
+     "log_sol_mol_l": {
+         "task": "regression",
+         "scaling": "extensive",
+         "metrics": [ "mae", "r2", "rhop", "rmse", "rhor" ],
+         "per_atom": false
+     }
+ },
+ "splits": [ {
+      "method": "sequential", 
+      "train_fraction": "np.arange(0.1, 1.0, 0.1)", 
+      "repeat_fraction_fct": "lambda s,t,p,f: 2*int(1./(f*(1-f))**0.5)" 
+    } 
+ ],
+ "elements": [ "C", "N", "O", "S", "H", "F", "Cl", "Br", "I", "P", "B", "Si" ],
+ "has_smiles": true,
+ "periodic": false,
+ "datasets": [
+    "aqsol_1144.xyz",
+    "aqsol_1762_w_smiles.xyz"
+  ]
+}
