@@ -42,7 +42,7 @@ if __name__ == "__main__":
             for j, model_j in enumerate(models):
                 if i > j:
                     #kij = np.mean(np.multiply(np.asmatrix(kmat[model_i.tag]), np.asmatrix(kmat[model_j.tag])))
-                    kij = spearmanr(kmat[model_i.tag], kmat[model_j.tag], axis=None)
+                    kij, _ = spearmanr(kmat[model_i.tag], kmat[model_j.tag], axis=None)
                     print("comparing ", model_i.tag, model_j.tag, "similarity = ", kij )
                     k_model[i,j] = k_model[j,i] = kij
 
