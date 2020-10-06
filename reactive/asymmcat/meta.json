@@ -1,7 +1,7 @@
 {
  "comment": "Diastereoselectivity of a catalysed hydrogenation reaction",
  "datasets": [
-  "ligands_dehydro.xyz"
+  "ligands_dehydro-no-na.xyz"
  ],
  "elements": [
   "C",

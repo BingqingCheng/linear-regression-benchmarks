@@ -1,0 +1,42 @@
+{
+ "comment": "The usual suspect",
+ "datasets": [
+  "qm7.xyz"
+ ],
+ "elements": [
+  "C",
+  "H",
+  "N",
+  "O",
+  "S"
+ ],
+ "has_smiles": true,
+ "hypersplit": {
+  "method": "random",
+  "n_splits": 10,
+  "train_fraction": 0.75
+ },
+ "name": "QM7",
+ "periodic": false,
+ "splits": [
+  {
+   "method": "sequential",
+   "repeat_fraction_fct": "lambda s,t,p,f: 2*int(1./(f*(1-f))**0.5)",
+   "train_fraction": "np.arange(0.1, 1.0, 0.1)"
+  }
+ ],
+ "targets": {
+  "atomization_energy": {
+   "convert": "",
+   "metrics": [
+    "mae",
+    "rmse",
+    "rhop",
+    "r2"
+   ],
+   "per_atom": false,
+   "scaling": "unknown",
+   "task": "regression"
+  }
+ }
+}

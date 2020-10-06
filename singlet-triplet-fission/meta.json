@@ -1,0 +1,45 @@
+{
+ "comment": "The usual suspect",
+ "datasets": [
+  "all_w_smiles.xyz"
+ ],
+ "elements": [
+  "C",
+  "Cl",
+  "H",
+  "N",
+  "O",
+  "S",
+  "F",
+  "Br"
+ ],
+ "has_smiles": true,
+ "hypersplit": {
+  "method": "random",
+  "n_splits": 10,
+  "train_fraction": 0.75
+ },
+ "name": "singlet-triplet-fission",
+ "periodic": false,
+ "splits": [
+  {
+   "method": "sequential",
+   "repeat_fraction_fct": "lambda s,t,p,f: 2*int(1./(f*(1-f))**0.5)",
+   "train_fraction": "np.arange(0.1, 1.0, 0.1)"
+  }
+ ],
+ "targets": {
+  "td_singlet": {
+   "convert": "",
+   "metrics": [
+    "mae",
+    "rmse",
+    "rhop",
+    "r2"
+   ],
+   "per_atom": false,
+   "scaling": "unknown",
+   "task": "regression"
+  }
+ }
+}
