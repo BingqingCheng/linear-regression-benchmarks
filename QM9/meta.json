@@ -1,7 +1,7 @@
 {
  "comment": "The usual suspect",
  "datasets": [
-  "fps-ordered-20000.xyz"
+  "fps-ordered_plus_rest_134k_w_smiles.xyz"
  ],
  "elements": [
   "C",
@@ -13,7 +13,7 @@
  "has_smiles": true,
  "hypersplit": {
   "method": "random",
-  "n_splits": 10,
+  "n_splits": 4,
   "train_fraction": 0.75
  },
  "name": "QM9",
@@ -21,21 +21,21 @@
  "splits": [
   {
    "method": "sequential",
-   "repeat_fraction_fct": "lambda s,t,p,f: 2*int(1./(f*(1-f))**0.5)",
-   "train_fraction": "0.001**2**n for n in range(int(-log(0.01)/log(2)+1))"
+   "repeat_fraction_fct": "lambda s,t,p,f: 4",
+   "train_fraction": "[ 0.003*2.0**n for n in range(int(-np.log(0.003)/np.log(2.0)+1)) ]"
   }
  ],
  "targets": {
   "dft_energy_no_zpe": {
    "convert": "",
    "metrics": [
-    "mae",
     "rmse",
+    "mae",
     "rhop",
     "r2"
    ],
    "per_atom": false,
-   "scaling": "unknown",
+   "scaling": "additive",
    "task": "regression"
   }
  }

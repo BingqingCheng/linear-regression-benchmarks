@@ -1,27 +1,49 @@
-Model collections in register: 
-[92m  Collection asap                 [1 models, [0;1m[92mavailable=True] [0;1m
-  - asap_xyz                  
-[92m  Collection bmol_acsf            [6 models, [0;1m[92mavailable=True] [0;1m
-  - bmol_acsf_minimal_rr      
-  - bmol_acsf_minimal_krr     
-  - bmol_acsf_smart_rr        
-  - bmol_acsf_smart_krr       
-  - bmol_acsf_longrange_rr    
-  - bmol_acsf_longrange_krr   
+[92m  Collection bmol_acsf            [12 models, [0;1m[92mavailable=True] [0;1m
+  - bmol_acsf_minimal_int_rr  
+  - bmol_acsf_minimal_int_krr 
+  - bmol_acsf_minimal_ext_rr  
+  - bmol_acsf_minimal_ext_krr 
+  - bmol_acsf_smart_int_rr    
+  - bmol_acsf_smart_int_krr   
+  - bmol_acsf_smart_ext_rr    
+  - bmol_acsf_smart_ext_krr   
+  - bmol_acsf_longrange_int_rr 
+  - bmol_acsf_longrange_int_krr 
+  - bmol_acsf_longrange_ext_rr 
+  - bmol_acsf_longrange_ext_krr 
 [92m  Collection bmol_cm              [4 models, [0;1m[92mavailable=True] [0;1m
   - bmol_cm_sorted_l2_rr      
   - bmol_cm_sorted_l2_krr     
   - bmol_cm_eigenspectrum_rr  
   - bmol_cm_eigenspectrum_krr 
-[92m  Collection bmol_ecfp            [2 models, [0;1m[92mavailable=True] [0;1m
-  - bmol_ecfp_krr             
-  - bmol_ecfp_rr              
-[92m  Collection bmol_gylm            [2 models, [0;1m[92mavailable=True] [0;1m
-  - bmol_gylm_grid_krr        
-  - bmol_gylm_bayes_krr       
-[92m  Collection bmol_mbtr            [2 models, [0;1m[92mavailable=True] [0;1m
-  - bmol_mbtr_rr              
-  - bmol_mbtr_krr             
+[92m  Collection bmol_ecfp            [4 models, [0;1m[92mavailable=True] [0;1m
+  - bmol_ecfp4_krr            
+  - bmol_ecfp4_rr             
+  - bmol_ecfp6_krr            
+  - bmol_ecfp6_rr             
+[92m  Collection bmol_gylm            [8 models, [0;1m[92mavailable=True] [0;1m
+  - bmol_gylm_minimal_int_krr 
+  - bmol_gylm_standard_int_krr 
+  - bmol_gylm_minimal_ext_krr 
+  - bmol_gylm_standard_ext_krr 
+  - bmol_gylm_minimal_int_rr  
+  - bmol_gylm_standard_int_rr 
+  - bmol_gylm_minimal_ext_rr  
+  - bmol_gylm_standard_ext_rr 
+[92m  Collection bmol_mbtr            [4 models, [0;1m[92mavailable=True] [0;1m
+  - bmol_mbtr_int_rr          
+  - bmol_mbtr_int_krr         
+  - bmol_mbtr_ext_rr          
+  - bmol_mbtr_ext_krr         
+[92m  Collection bmol_pdf             [8 models, [0;1m[92mavailable=True] [0;1m
+  - bmol_pdf_soap_standard_rr 
+  - bmol_pdf_gylm_standard_rr 
+  - bmol_pdf_soap_standard_krr 
+  - bmol_pdf_gylm_standard_krr 
+  - bmol_pdf_soap_minimal_rr  
+  - bmol_pdf_gylm_minimal_rr  
+  - bmol_pdf_soap_minimal_krr 
+  - bmol_pdf_gylm_minimal_krr 
 [92m  Collection bmol_physchem        [8 models, [0;1m[92mavailable=True] [0;1m
   - bmol_physchem_basic_rf    
   - bmol_physchem_basic_rr    
@@ -31,54 +53,28 @@ Model collections in register:
   - bmol_physchem_logp_rr     
   - bmol_physchem_extended_rf 
   - bmol_physchem_extended_rr 
-[92m  Collection bmol_soap            [12 models, [0;1m[92mavailable=True] [0;1m
-  - bmol_soap_minimal_nocross_krr 
-  - bmol_soap_minimal_cross_krr 
-  - bmol_soap_smart_nocross_krr 
-  - bmol_soap_smart_cross_krr 
-  - bmol_soap_longrange_nocross_krr 
-  - bmol_soap_longrange_cross_krr 
-  - bmol_soap_minimal_nocross_rr 
-  - bmol_soap_minimal_cross_rr 
-  - bmol_soap_smart_nocross_rr 
-  - bmol_soap_smart_cross_rr  
-  - bmol_soap_longrange_nocross_rr 
-  - bmol_soap_longrange_cross_rr 
-[92m  Collection dscribe              [4 models, [0;1m[92mavailable=True] [0;1m
-  - DscribeCM_ridge           
-  - DscribeACSF_ridge         
-  - DscribeMBTR_ridge         
-  - DscribeLMBTR_ridge        
-[92m  Collection dscribe_periodic     [1 models, [0;1m[92mavailable=True] [0;1m
-  - DscribeSineMatrix_ridge   
-[92m  Collection ecfp                 [3 models, [0;1m[92mavailable=True] [0;1m
-  - morgan_krr_ext            
-  - morgan_ridge              
-  - morgan_gb                 
-[92m  Collection gylm                 [1 models, [0;1m[92mavailable=True] [0;1m
-  - gylm                      
-[92m  Collection gylm_grid            [1 models, [0;1m[92mavailable=True] [0;1m
-  - gylm_grid                 
-[92m  Collection gylm_match           [1 models, [0;1m[92mavailable=True] [0;1m
-  - gylm_smooth_match         
-[92m  Collection logd                 [8 models, [0;1m[92mavailable=True] [0;1m
-  - logp_linear               
-  - logd_physchem_rf          
-  - delta_kernelcombo_logd_morgan 
-  - delta_kernelcombo_logd_gylm 
-  - kernelcombo_logd_morgan   
-  - kernelcombo_logd_gylm     
-  - delta_logd_gylm           
-  - delta_logd_morgan         
-[92m  Collection morgan_krr           [1 models, [0;1m[92mavailable=True] [0;1m
-  - morgan_krr                
-[92m  Collection null                 [0 models, [0;1m[92mavailable=True] [0;1m
-[92m  Collection physchem             [1 models, [0;1m[92mavailable=True] [0;1m
-  - physchem                  
-[92m  Collection soap                 [6 models, [0;1m[92mavailable=True] [0;1m
-  - soap_krr_00               
-  - soap_krr_01               
-  - soap_krr_02               
-  - soap_krr_03               
-  - soap_krr_04               
-  - soap_krr_05               
+[92m  Collection bmol_soap            [24 models, [0;1m[92mavailable=True] [0;1m
+  - bmol_soap_minimal_nocross_int_krr 
+  - bmol_soap_minimal_cross_int_krr 
+  - bmol_soap_smart_nocross_int_krr 
+  - bmol_soap_smart_cross_int_krr 
+  - bmol_soap_longrange_nocross_int_krr 
+  - bmol_soap_longrange_cross_int_krr 
+  - bmol_soap_minimal_nocross_ext_krr 
+  - bmol_soap_minimal_cross_ext_krr 
+  - bmol_soap_smart_nocross_ext_krr 
+  - bmol_soap_smart_cross_ext_krr 
+  - bmol_soap_longrange_nocross_ext_krr 
+  - bmol_soap_longrange_cross_ext_krr 
+  - bmol_soap_minimal_nocross_int_rr 
+  - bmol_soap_minimal_cross_int_rr 
+  - bmol_soap_smart_nocross_int_rr 
+  - bmol_soap_smart_cross_int_rr 
+  - bmol_soap_longrange_nocross_int_rr 
+  - bmol_soap_longrange_cross_int_rr 
+  - bmol_soap_minimal_nocross_ext_rr 
+  - bmol_soap_minimal_cross_ext_rr 
+  - bmol_soap_smart_nocross_ext_rr 
+  - bmol_soap_smart_cross_ext_rr 
+  - bmol_soap_longrange_nocross_ext_rr 
+  - bmol_soap_longrange_cross_ext_rr 

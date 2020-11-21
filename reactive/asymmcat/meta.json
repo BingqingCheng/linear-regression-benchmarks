@@ -31,13 +31,13 @@
   "de": {
    "convert": "",
    "metrics": [
-    "mae",
     "rmse",
+    "mae",
     "rhop",
     "r2"
    ],
    "per_atom": false,
-   "scaling": "unknown",
+   "scaling": "non-additive",
    "task": "regression"
   }
  }

@@ -1,25 +1,37 @@
-{ 
+{
  "comment": "Aqueous solubility datasets",
- "name": "aqsol",
- "targets": {
-     "log_sol_mol_l": {
-         "task": "regression",
-         "scaling": "extensive",
-         "metrics": [ "mae", "r2", "rhop", "rmse", "rhor" ],
-         "per_atom": false
-     }
- },
- "splits": [ {
-      "method": "sequential", 
-      "train_fraction": "np.arange(0.1, 1.0, 0.1)", 
-      "repeat_fraction_fct": "lambda s,t,p,f: 2*int(1./(f*(1-f))**0.5)" 
-    } 
+ "datasets": [
+	     "aqsol_1144.xyz",
+    "aqsol_1762_w_smiles.xyz"
  ],
  "elements": [ "C", "N", "O", "S", "H", "F", "Cl", "Br", "I", "P", "B", "Si" ],
  "has_smiles": true,
+ "hypersplit": {
+  "method": "random",
+  "n_splits": 6,
+  "train_fraction": 0.75
+ },
+ "name": "aqsol",
  "periodic": false,
- "datasets": [
-    "aqsol_1144.xyz",
-    "aqsol_1762_w_smiles.xyz"
-  ]
+ "splits": [
+  {
+   "method": "sequential",
+   "repeat_fraction_fct": "lambda s,t,p,f: 8",
+   "train_fraction": "[ 0.003*2.**n for n in range(int(-np.log(0.002)/np.log(2.0)+1)) ]"
+  }
+ ],
+ "targets": {
+  "log_sol_mol_l": {
+   "convert": "",
+   "metrics": [
+    "rmse",
+    "mae",
+    "rhop",
+    "r2"
+   ],
+   "per_atom": false,
+   "scaling": "non-additive",
+   "task": "regression"
+  }
+ }
 }

@@ -12,7 +12,7 @@
  "has_smiles": true,
  "hypersplit": {
   "method": "random",
-  "n_splits": 10,
+  "n_splits": 8,
   "train_fraction": 0.75
  },
  "name": "smol1k",
@@ -20,21 +20,21 @@
  "splits": [
   {
    "method": "sequential",
-   "repeat_fraction_fct": "lambda s,t,p,f: 2*int(1./(f*(1-f))**0.5)",
-   "train_fraction": "np.arange(0.1, 1.0, 0.1)"
+   "repeat_fraction_fct": "lambda s,t,p,f: 8",
+   "train_fraction": "np.arange(0.02, 1.0, 0.05)"
   }
  ],
  "targets": {
   "dft_formation_energy_per_atom_in_eV": {
    "convert": "",
    "metrics": [
-    "mae",
     "rmse",
+    "mae",
     "rhop",
     "r2"
    ],
    "per_atom": false,
-   "scaling": "unknown",
+   "scaling": "non-additive",
    "task": "regression"
   }
  }

@@ -32,7 +32,7 @@
     "r2"
    ],
    "per_atom": false,
-   "scaling": "unknown",
+   "scaling": "additive",
    "task": "regression"
   }
  }

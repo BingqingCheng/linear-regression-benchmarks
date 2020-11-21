@@ -16,7 +16,7 @@
   "n_splits": 10,
   "train_fraction": 0.75
  },
- "name": "QM7B",
+ "name": "FH51",
  "periodic": false,
  "splits": [
   {
@@ -29,13 +29,13 @@
   "energy_kcal_mol": {
    "convert": "",
    "metrics": [
-    "mae",
     "rmse",
+    "mae",
     "rhop",
     "r2"
    ],
    "per_atom": false,
-   "scaling": "unknown",
+   "scaling": "additive",
    "task": "regression"
   }
  }

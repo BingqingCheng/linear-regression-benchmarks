@@ -28,13 +28,13 @@
   "energy_kcal_mol": {
    "convert": "",
    "metrics": [
-    "mae",
     "rmse",
+    "mae",
     "rhop",
     "r2"
    ],
    "per_atom": false,
-   "scaling": "unknown",
+   "scaling": "additive",
    "task": "regression"
   }
  }
