@@ -106,7 +106,7 @@ def get_learning_curve(by_model, model_key_now='bmol_soap_rr_00', sc_name='RMSE'
                     uplims=True, lolims=True, label=label)
         ax.errorbar(lc_results[:,0], lc_results[:,1], yerr=lc_results[:,2], 
                     linestyle='-', c = linecolor,
-                    uplims=True, lolims=True)
+                    uplims=True, lolims=True, label=label)
         if label is not None: ax.legend(loc="right", bbox_to_anchor=(1.3, 0.5))
     
     return lc_results, lc_train_results, ax

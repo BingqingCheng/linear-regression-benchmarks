@@ -7,47 +7,53 @@ import numpy as np
 from asaplib.fit.getscore import get_score
 from asaplib.fit import LC_SCOREBOARD
 
-def model_elementwise_error(model_now):
+def model_elementwise_error(model_now, select='test', compare='MSE', replica=None):
     
     n_repeats = model_now['n_repeats']
-    
+
     # some options to select certain data points
-    y_train = model_now['train'][model_now['train'][:,-1]==1]
-    y_test = model_now['test'][model_now['test'][:,-1]==0]
-    y_all = np.concatenate([y_test,y_train])
-    y_sorted = y_all[np.argsort(y_all[:, 0])]
-    
-    # the avg value of the y from all replicas
-    y_avg = np.asmatrix([np.mean(v) for v in y_sorted[:] ] )
-    # print(np.shape(y_avg))
-    
-    # this records the prediction error y_true-y_pred for each data point using each fit
-    y_error = np.asmatrix([ v[2]-v[1] for v in y_sorted]).reshape((-1,n_repeats))
-    # records the MSE, MAE, and the standard deviation of error
-    y_e_analysis = np.asmatrix([ [np.mean(v), np.mean(np.abs(v)), np.std(v)] for v in y_error[:] ] )
-    # y, y_MSE, y_MAE, y_SD
-    return np.asarray(np.squeeze(y_avg)).T, np.asarray(y_e_analysis[:,0]), \
-           np.asarray(y_e_analysis[:,1]), np.asarray(y_e_analysis[:,2])
 
-def model_error_correlation(model_1, model_2, compare='MAE', metric='CORR'):
-
-    
-    y_avg, error_mse, error_mae, error_std = model_elementwise_error(model_1)
-    y_avg_2, error_mse_2, error_mae_2, error_std_2 = model_elementwise_error(model_2)
-        
-    if compare == 'y':
-        return get_score(y_avg, y_avg_2)[metric]
-    elif compare == 'MAE':
-        return get_score(error_mae, error_mae_2)[metric]
-    elif compare == 'MSE':
-        return get_score(error_mse, error_mse_2)[metric]
-    elif compare == 'STD':
-        return get_score(error_std, error_std_2)[metric]
+    if select=='all':
+        y_train = model_now['train']
+        y_test = model_now['test']
+        y_raw = np.concatenate([y_test,y_train])
+        y_all = y_raw[np.argsort(y_raw[:, 0])]
+    elif select=='train':
+        if replica == None:
+            y_all = model_now['train']
+        else:
+            y_all = model_now['train'][model_now['train'][:,-2]==replica]
+    elif select=='test':
+        if replica == None:
+            y_all = model_now['test']
+        else:
+            y_all = model_now['test'][model_now['test'][:,-2]==replica]
     else:
-        raise ValueError("don't know what to compare")
+        raise ValueError("selection not exist")
+
+    # y_MSE, y_MAE
+    if compare == 'MSE':
+        # train_idcs, y_pred, y_true, submodel_id, train_or_not
+        return np.asarray([v[1]-v[2] for v in y_all])
+    elif compare == 'MAE':
+        return np.asarray([np.abs(v[1]-v[2]) for v in y_all])
+    elif compare == 'RMSE':
+        return np.asarray([(v[1]-v[2])**2. for v in y_all])
+    elif compare == 'y':
+        return np.asarray([v[1] for v in y_all])
+    else:
+        raise ValueError("selection not exist")
+
+def model_error_correlation(model_1, model_2, select='test', compare='MSE', metric='CORR', replica=None):
+
+    
+    y_1 = model_elementwise_error(model_1, select, compare, replica)
+    y_2 = model_elementwise_error(model_2, select, compare, replica)
+        
+    return get_score(y_1, y_2)[metric]
 
 
-def model_correlation_matrix(by_model, key_now, compare='MSE', metric='CORR', verbose=True):
+def model_correlation_matrix(by_model, key_now, select='test', compare='MSE', metric='CORR', replica=None, verbose=True):
 
     correlation_matrix = np.ones((len(by_model.keys()),len(by_model.keys())))
     model_list = []
@@ -60,12 +66,12 @@ def model_correlation_matrix(by_model, key_now, compare='MSE', metric='CORR', ve
                 model_now = by_model[model_key_now][key_now]
                 model_now_2 = by_model[model_key_now_2][key_now]
 
-                correlation_matrix[i, j] = correlation_matrix[j, i] = model_error_correlation(model_now, model_now_2, compare, metric)
+                correlation_matrix[i, j] = correlation_matrix[j, i] = model_error_correlation(model_now, model_now_2, select, compare, metric, replica)
                 if verbose: print(model_key_now, model_key_now_2, correlation_matrix[i, j])
 
     return correlation_matrix, model_list
 
-def all_model_correlation_matrix(by_model, key_now_list=[], compare='MSE', metric='CORR', verbose=True):
+def all_model_correlation_matrix(by_model, key_now_list=[], select='all', compare='MSE', metric='PearsonR', replica=None, verbose=True):
 
     all_corr_matrix_size = len(by_model.keys())*len(key_now_list)
 
@@ -88,7 +94,7 @@ def all_model_correlation_matrix(by_model, key_now_list=[], compare='MSE', metri
                         model_now_2 = by_model[model_key_now_2][r_now_2]
                     
                         all_corr_matrix[index_model_1,index_model_2] = all_corr_matrix[index_model_2,index_model_1] = \
-                             model_error_correlation(model_now, model_now_2, compare=compare, metric=metric)
+                             model_error_correlation(model_now, model_now_2, select, compare, metric, replica)
                     if verbose: print(model_key_now, r_now, model_key_now_2, r_now_2, all_corr_matrix[i, j])
 
     return all_corr_matrix, all_model_list
