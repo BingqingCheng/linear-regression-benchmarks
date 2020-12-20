@@ -1,0 +1,39 @@
+{
+ "comment": "The usual suspect",
+ "datasets": [
+  "water_dimers_amoeba_bulk300K_1000_4.5_lt_Roo_lt_6.0_MP2_AVTZ_w_smiles.xyz"
+ ],
+ "elements": [
+  "H",
+  "O"
+ ],
+ "has_smiles": false,
+ "hypersplit": {
+  "method": "random",
+  "n_splits": 10,
+  "train_fraction": 0.75
+ },
+ "name": "water-dimer",
+ "periodic": false,
+ "splits": [
+  {
+   "method": "sequential",
+   "repeat_fraction_fct": "lambda s,t,p,f: 2*int(1./(f*(1-f))**0.5)",
+   "train_fraction": "np.arange(0.1, 1.0, 0.1)"
+  }
+ ],
+ "targets": {
+  "energy": {
+   "convert": "",
+   "metrics": [
+    "rmse",
+    "mae",
+    "rhop",
+    "r2"
+   ],
+   "per_atom": false,
+   "scaling": "additive",
+   "task": "regression"
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{ 
+ "comment": "see README.txt",
+ "name": "ba10-18",
+ "targets": {
+     "total_energy_eV": {
+         "task": "regression",
+         "scaling": "additive",
+     "metrics": [
+    "rmse",
+    "mae",
+    "rhop",
+    "r2"
+   ],
+  	 "per_atom": false
+     }
+ },
+  "splits": [
+  {
+   "method": "sequential",
+   "repeat_fraction_fct": "lambda s,t,p,f: 4",
+   "train_fraction": "[ 0.003*2.0**n for n in range(int(-np.log(0.003)/np.log(2.0)+1)) ]"
+  }
+ ],
+ "elements": [ "Ag", "Cu", "Al", "Fe", "Mg", "Ni", "Ti", "Co", "V", "Nb" ],
+ "has_smiles": false,
+  "hypersplit": {
+  "method": "random",
+  "n_splits": 4,
+  "train_fraction": 0.75
+ },
+ "periodic": true,
+ "datasets": [
+  "ba10-18-extended.xyz"
+  ]
+}
