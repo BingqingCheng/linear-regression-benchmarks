@@ -1,0 +1,36 @@
+{ 
+ "comment": "see README.txt",
+ "name": "OQMD",
+ "targets": {
+     "energy_per_atom": {
+         "task": "regression",
+         "scaling": "non-additive",
+         "metrics": [ "rmse","mae", "r2" ],
+         "per_atom": true
+     },
+	"band_gap": {
+         "task": "regression",
+         "scaling": "non-additive",
+         "metrics": [ "rmse", "mae", "r2" ],
+         "per_atom":false
+     }
+ },
+   "splits": [
+  {
+   "method": "sequential",
+   "repeat_fraction_fct": "lambda s,t,p,f: 3",
+   "train_fraction": "[ 0.003*2.0**n for n in range(int(-np.log(0.003)/np.log(2.0)+1)) ]"
+  }
+ ],
+ "elements": [ "Ac","Ag", "Al", "Ar", "As", "Au", "B" ,"Ba", "Be" ,"Bi", "Br", "C" ,"Ca", "Cd", "Ce",
+ "Cl", "Co", "Cr", "Cs", "Cu", "Dy", "Er", "Eu" ,"F" ,"Fe", "Ga", "Gd", "Ge", "H" ,"He",
+ "Hf", "Hg", "Ho", "I", "In", "Ir", "K", "Kr", "La", "Li", "Lu", "Mg", "Mn", "Mo" ,"N",
+ "Na", "Nb", "Nd", "Ne", "Ni", "Np", "O", "Os", "P", "Pa", "Pb", "Pd", "Pm", "Pr" ,"Pt",
+ "Pu", "Rb", "Re", "Rh", "Ru", "S", "Sb", "Sc", "Se", "Si", "Sm", "Sn", "Sr", "Ta", "Tb",
+ "Tc", "Te", "Th", "Ti", "Tl", "Tm", "U", "V", "W", "Xe", "Y" ,"Yb", "Zn", "Zr" ],
+ "has_smiles": false,
+ "periodic": true,
+ "datasets": [
+  "OQMD.xyz"
+  ]
+}
