@@ -1,0 +1,45 @@
+{
+"comment": "CHEMBL binding affinity data for selected targets",
+ "datasets": [
+  "target_5htt.xyz",
+  "target_adenosinea3.xyz",
+  "target_bace.xyz",
+  "target_gr.xyz",
+  "target_herg.xyz",
+  "target_hiv1pr.xyz",
+  "target_thrombin.xyz",
+  "target_vegf.xyz"
+ ],
+ "elements": [
+    "C", "N", "O", "S", "H", "F", "Cl", "Br", "I", "B", "P", "Si"
+ ],
+ "has_smiles": true,
+ "hypersplit": {
+  "method": "random",
+  "n_splits": 6,
+  "train_fraction": 0.75
+ },
+ "name": "CHEMBL",
+ "periodic": false,
+ "splits": [
+  {
+   "method": "sequential",
+   "repeat_fraction_fct": "lambda s,t,v,f: 2*int(1./(f*(1-f))**0.5)",
+   "train_fraction": "np.arange(0.1, 1.0, 0.1)"
+  }
+ ],
+ "targets": {
+  "pactivity": {
+   "convert": "",
+   "metrics": [
+    "mae",
+    "rmse",
+    "rhop",
+    "r2"
+   ],
+   "per_atom": false,
+   "scaling": "non-additive",
+   "task": "regression"
+  }
+ }
+}
