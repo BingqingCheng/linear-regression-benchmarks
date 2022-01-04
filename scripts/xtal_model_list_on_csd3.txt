@@ -1,0 +1,74 @@
+[92m  Collection bxtal_acsf           [12 models, [0;1m[92mavailable=True] [0;1m
+  - bxtal_acsf_minimal_int_rr 
+  - bxtal_acsf_minimal_int_krr 
+  - bxtal_acsf_minimal_ext_rr 
+  - bxtal_acsf_minimal_ext_krr 
+  - bxtal_acsf_smart_int_rr   
+  - bxtal_acsf_smart_int_krr  
+  - bxtal_acsf_smart_ext_rr   
+  - bxtal_acsf_smart_ext_krr  
+  - bxtal_acsf_longrange_int_rr 
+  - bxtal_acsf_longrange_int_krr 
+  - bxtal_acsf_longrange_ext_rr 
+  - bxtal_acsf_longrange_ext_krr 
+[92m  Collection bxtal_ecfp           [0 models, [0;1m[92mavailable=True] [0;1m
+[92m  Collection bxtal_esm            [4 models, [0;1m[92mavailable=True] [0;1m
+  - bxtal_esm_sorted_l2_rr    
+  - bxtal_esm_sorted_l2_krr   
+  - bxtal_esm_eigenspectrum_rr 
+  - bxtal_esm_eigenspectrum_krr 
+[92m  Collection bxtal_gylm           [8 models, [0;1m[92mavailable=True] [0;1m
+  - bxtal_gylm_minimal_int_krr 
+  - bxtal_gylm_standard_int_krr 
+  - bxtal_gylm_minimal_ext_krr 
+  - bxtal_gylm_standard_ext_krr 
+  - bxtal_gylm_minimal_int_rr 
+  - bxtal_gylm_standard_int_rr 
+  - bxtal_gylm_minimal_ext_rr 
+  - bxtal_gylm_standard_ext_rr 
+[92m  Collection bxtal_mbtr           [4 models, [0;1m[92mavailable=True] [0;1m
+  - bxtal_mbtr_int_rr         
+  - bxtal_mbtr_int_krr        
+  - bxtal_mbtr_ext_rr         
+  - bxtal_mbtr_ext_krr        
+[92m  Collection bxtal_pdf            [8 models, [0;1m[92mavailable=True] [0;1m
+  - bxtal_pdf_soap_standard_rr 
+  - bxtal_pdf_gylm_standard_rr 
+  - bxtal_pdf_soap_standard_krr 
+  - bxtal_pdf_gylm_standard_krr 
+  - bxtal_pdf_soap_minimal_rr 
+  - bxtal_pdf_gylm_minimal_rr 
+  - bxtal_pdf_soap_minimal_krr 
+  - bxtal_pdf_gylm_minimal_krr 
+[92m  Collection bxtal_physchem       [6 models, [0;1m[92mavailable=True] [0;1m
+  - bxtal_physchem_s05_rf     
+  - bxtal_physchem_s05_rr     
+  - bxtal_physchem_s10_rf     
+  - bxtal_physchem_s10_rr     
+  - bxtal_physchem_s20_rf     
+  - bxtal_physchem_s20_rr     
+[92m  Collection bxtal_soap           [24 models, [0;1m[92mavailable=True] [0;1m
+  - bxtal_soap_minimal_nocross_int_krr 
+  - bxtal_soap_minimal_cross_int_krr 
+  - bxtal_soap_smart_nocross_int_krr 
+  - bxtal_soap_smart_cross_int_krr 
+  - bxtal_soap_longrange_nocross_int_krr 
+  - bxtal_soap_longrange_cross_int_krr 
+  - bxtal_soap_minimal_nocross_ext_krr 
+  - bxtal_soap_minimal_cross_ext_krr 
+  - bxtal_soap_smart_nocross_ext_krr 
+  - bxtal_soap_smart_cross_ext_krr 
+  - bxtal_soap_longrange_nocross_ext_krr 
+  - bxtal_soap_longrange_cross_ext_krr 
+  - bxtal_soap_minimal_nocross_int_rr 
+  - bxtal_soap_minimal_cross_int_rr 
+  - bxtal_soap_smart_nocross_int_rr 
+  - bxtal_soap_smart_cross_int_rr 
+  - bxtal_soap_longrange_nocross_int_rr 
+  - bxtal_soap_longrange_cross_int_rr 
+  - bxtal_soap_minimal_nocross_ext_rr 
+  - bxtal_soap_minimal_cross_ext_rr 
+  - bxtal_soap_smart_nocross_ext_rr 
+  - bxtal_soap_smart_cross_ext_rr 
+  - bxtal_soap_longrange_nocross_ext_rr 
+  - bxtal_soap_longrange_cross_ext_rr 
