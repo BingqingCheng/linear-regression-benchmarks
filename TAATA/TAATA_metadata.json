@@ -1,6 +1,6 @@
 { 
  "comment": "see README.txt",
- "name": "TATA",
+ "name": "TAATA",
  "targets": {
      "dft_formation_energy_in_eV": {
          "task": "regression",
@@ -14,5 +14,5 @@
  "has_smiles": false,
  "periodic": true,
  "datasets": [
-  "TATA.xyz"
+  "TAATA.xyz"
   ]
